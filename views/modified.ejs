@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/style.css" rel="stylesheet">
+    <title><%=locals.page%> Blog</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+            width: 100vi;
+            height: 100vh;
+            }
+    </style>
+</head>
+<body>
+    <h1><%=locals.page%></h1>
+    <form action=<%=locals.add%> method="post" class="form-container">
+        <% if(page=="NEW BLOG"){ %>
+            <input class="title" type="text" placeholder="Title" name="title">
+            <textarea class="blog" placeholder="Blog" name="blog"></textarea>
+            <input class="author" type="text" name="author" placeholder="Author" autocomplete="off">
+            <input class="new" type="submit" value="Publish">
+        <% }else{ %>
+            <% locals.content %>
+            <input class="title" type="text" placeholder="Title" name="title" value="<%=content.title%>">
+            <textarea class="blog" placeholder="Blog" name="blog"><%= content.blog %></textarea>
+            <input class="author" type="text" name="author" placeholder="Author" value="<%=content.author%>" autocomplete="off">
+            <input class="new" type="submit" value="Publish">
+            <% } %>
+    </form>
+</body>
+</html>

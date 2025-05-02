@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link href="/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <h1>MY PERSONAL BLOG</h1>
+    <form action="/new">
+        <input class="new" type="submit" value="NEW BLOG">
+    </form>
+    <% if(locals.content){ %>
+        <% content.forEach((contents)=> {%>
+            <div class="blog-container">
+                <h2><%=contents.title%></h2>
+                <p><%=contents.blog%></p>
+                <h4><%=contents.author%></h4>
+                <a href="/edit/<%=contents.id%>"><button class="edit-button" >Edit</button></a>
+                <a href="/delete/<%=contents.id%>"><button class="delete-button">Delete</button></a>
+            </div>
+            <%})%>
+            <% } %>
+        
+
+</body>
+</html>
